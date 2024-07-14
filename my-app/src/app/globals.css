@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-btn {
+    @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+}
+
+.hero__title {
+    @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-bold;
+}
+
+.hero__subtitle {
+    @apply text-[27px] text-black-100 font-light mt-5;
+}
