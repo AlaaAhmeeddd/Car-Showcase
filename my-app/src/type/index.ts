@@ -9,3 +9,13 @@ export interface CustomButtonProps {
     rightIcon?: string;
     handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface optionsType {
+    title: string,
+    value: string,
+}
+
+export interface optionsProps {
+    title: string,
+    list: optionsType[],
+}

@@ -37,7 +37,7 @@ export default function SearchManufacturer() {
             </ComboboxButton>
           </div>
           <ComboboxOptions className="bg-white shadow-lg ring-1 ring-black ring-opacity-5 
-          focus:outline-none sm:text-sm mt-1 h-80 w-full overflow-auto rounded-md absolute left-0">
+          focus:outline-none sm:text-sm mt-1 max-h-80 w-full overflow-auto rounded-md absolute left-0 z-20">
             {
               queryMenuFacturer.length === 0 
               ? <ComboboxOption

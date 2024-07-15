@@ -1,3 +1,5 @@
+import { fuels, yearsOfProduction } from "@/@constants";
+import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
 
@@ -10,7 +12,13 @@ export default function Home() {
           <h1 className='text-4xl font-bold'>Car Catalogue</h1>
           <p>Explore out cars you might like</p>
         </div>
-        <SearchBar />
+        <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-4 mt-8">
+          <SearchBar />
+          <div className="flex gap-2">
+            <CustomFilter title='fuel' list={fuels} />
+            <CustomFilter title='year' list={yearsOfProduction} />
+          </div>
+        </div>
       </div>
     </main>
   );
