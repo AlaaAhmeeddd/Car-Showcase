@@ -19,3 +19,8 @@ export interface optionsProps {
     title: string,
     list: optionsType[],
 }
+
+export interface SearchManuFacturerProps {
+    manufacturer: string;
+    setManuFacturer: (manufacturer: string) => void;
+}

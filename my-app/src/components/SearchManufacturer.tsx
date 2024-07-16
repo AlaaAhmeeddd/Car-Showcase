@@ -3,9 +3,10 @@ import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOption
 import { manufacturers } from '@/@constants'
 import { useState } from 'react';
 import Image from 'next/image';
+import { SearchManuFacturerProps } from '@/type';
 
 
-export default function SearchManufacturer() {
+export default function SearchManufacturer({ manufacturer, setManuFacturer }: SearchManuFacturerProps) {
   const [query, setQuery] = useState("")
   const queryMenuFacturer = 
     query === ""
@@ -18,7 +19,7 @@ export default function SearchManufacturer() {
     ));
   return(
     <div className="flex-1 max-sm:w-full flex justify-start items-center bg-light-white rounded-l-full max-sm:rounded-full">
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className="w-full relative">
           <div className="flex gap-3 relative">
             <ComboboxInput
@@ -26,6 +27,7 @@ export default function SearchManufacturer() {
               className="rounded-l-full max-sm:rounded-full bg-transparent py-3 w-full px-12 outline-none h-[48px]"
               placeholder="Volkswagen..."
               onChange={(event)=>{setQuery(event.target.value)}}
+              displayValue={(item: string)=>item}
             />
             <ComboboxButton className="group absolute inset-y-0 px-2.5">
               <Image 
@@ -44,7 +46,7 @@ export default function SearchManufacturer() {
                   className={({ active }) =>
                     'relative cursor-default select-none py-2 pl-10 pr-4 text-gray-900 my-1'
                   }
-                  value={1}
+                  value={query}
                 >
                   Create {query}
                 </ComboboxOption>
@@ -57,7 +59,7 @@ export default function SearchManufacturer() {
                       active ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }
-                  value={index}
+                  value={manufacturer}
                 >
                   {manufacturer}
                 </ComboboxOption>

@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import SearchManufacturer from "./SearchManufacturer";
+import { useState } from "react";
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
     <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
@@ -14,10 +16,14 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 );
 
 export default function SearchBar() {
+    const [manufacturer, setManuFacturer] = useState("");
     return (
         <form className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl">
             <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
-                <SearchManufacturer />
+            <SearchManufacturer
+                manufacturer={manufacturer}
+                setManuFacturer={setManuFacturer}
+            />
                 <SearchButton otherClasses='sm:hidden' />
             </div>
             <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>

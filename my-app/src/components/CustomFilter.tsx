@@ -17,7 +17,7 @@ export default function CustomFilter({title, list}: optionsProps) {
                         'relative capitalize flex items-center justify-between w-[120px] rounded-lg bg-white/5 py-1.5 px-3 text-left text-sm/6',
                     )}
                     >
-                        {option.title}
+                        {title}
                         <Image src='/chevron-up-down.svg' width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
                     </ListboxButton>
                     <ListboxOptions
