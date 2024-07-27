@@ -6,8 +6,10 @@ import { fetchCars } from "../../utils";
 import CarCard from "@/components/CarCard";
 
 export default async function Home() {
+
   const returnedCars = await fetchCars()
   console.log(returnedCars)
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -25,21 +27,22 @@ export default async function Home() {
         </div>
         <div>
           { returnedCars.length == 0 || !Array.isArray(returnedCars) ? 
-              (
-                <div className="mt-16 flex justify-center items-center flex-col gap-2">
-                  <h2 className='text-black text-2xl font-semibold'>Oops, no results</h2>
-                  <p>{returnedCars?.message}</p>
-                </div>
-              )
-              : (
-                <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
-                  {
-                    returnedCars?.map((car, index)=>(
-                      <CarCard key={index} car={car} />
-                    ))
-                  }
-                </div> 
-              )  
+            (
+              <div className="mt-16 flex justify-center items-center flex-col gap-2">
+                <h2 className='text-black text-2xl font-semibold'>Oops, no results</h2>
+                <p>{returnedCars?.message}</p>
+              </div>
+            )
+            : 
+            (
+              <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
+                {
+                  returnedCars?.map((car, index)=>(
+                    <CarCard key={index} car={car} />
+                  ))
+                }
+              </div> 
+            )  
           }
         </div>
       </div>

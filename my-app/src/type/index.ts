@@ -39,3 +39,9 @@ export interface SearchManuFacturerProps {
     manufacturer: string;
     setManuFacturer: (manufacturer: string) => void;
 }
+
+export interface carDetailsProps {
+    isOpen: boolean,
+    closeModal: () => void,
+    car: CarProps,
+}
