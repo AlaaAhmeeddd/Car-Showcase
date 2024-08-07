@@ -5,6 +5,7 @@ import SearchBar from "@/components/SearchBar";
 import { fetchCars } from "../../utils";
 import CarCard from "@/components/CarCard";
 import { HomeProps } from "@/type";
+import ShowMore from "@/components/ShowMore";
 
 export default async function Home({ searchParams }: HomeProps) {
 
@@ -41,13 +42,16 @@ export default async function Home({ searchParams }: HomeProps) {
             )
             : 
             (
-              <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
-                {
-                  returnedCars?.map((car, index)=>(
-                    <CarCard key={index} car={car} />
-                  ))
-                }
-              </div> 
+              <div>
+                <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
+                  {
+                    returnedCars?.map((car, index)=>(
+                      <CarCard key={index} car={car} />
+                    ))
+                  }
+                </div> 
+                <ShowMore />
+              </div>
             )  
           }
         </div>
