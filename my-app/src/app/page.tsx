@@ -4,11 +4,17 @@ import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
 import { fetchCars } from "../../utils";
 import CarCard from "@/components/CarCard";
+import { HomeProps } from "@/type";
 
-export default async function Home() {
+export default async function Home({ searchParams }: HomeProps) {
 
-  const returnedCars = await fetchCars()
-  console.log(returnedCars)
+  const returnedCars = await fetchCars({
+      manufacturer: searchParams.manufacturer || "",
+      year: searchParams.year || 2022,
+      fuel: searchParams.fuel || "",
+      limit: searchParams.limit || 10,
+      model: searchParams.model || "",
+    })
 
   return (
     <main className="overflow-hidden">

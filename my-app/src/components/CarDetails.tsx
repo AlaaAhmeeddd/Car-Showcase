@@ -3,7 +3,6 @@ import { carDetailsProps } from "@/type";
 import Image from 'next/image';
 
 export default function CarDetails({isOpen, closeModal, car}: carDetailsProps) {
-    console.log(car)
     return (
         <div>
             <Dialog open={isOpen} onClose={closeModal} className="relative z-[250]">
