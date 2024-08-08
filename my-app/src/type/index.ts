@@ -57,3 +57,8 @@ export interface carDetailsProps {
     closeModal: () => void,
     car: CarProps,
 }
+
+export interface ShowMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+}
